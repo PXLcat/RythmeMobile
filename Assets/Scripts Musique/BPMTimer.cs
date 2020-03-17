@@ -7,7 +7,8 @@ public class BPMTimer : MonoBehaviour
 {
     [SerializeField]
     private double m_interval = 300;
-    public bool m_enabled;
+    [SerializeField]
+    private bool m_enabled;
     public int m_currentTick;
 
     private Stopwatch watch;
@@ -17,18 +18,35 @@ public class BPMTimer : MonoBehaviour
         m_interval = interval;
     }
 
-    public void Start()
+    public void StartTimer()
     {
         watch = Stopwatch.StartNew();
+        m_enabled = true;
     }
+    public void PauseTimer()
+    {
+        watch.Stop();
+        m_enabled = false;
+    }
+    public void ResumeTimer()
+    {
+        watch.Start();
+        m_enabled = true;
+    }
+    public void StopTimer()
+    {
+        watch.Reset();
+        m_enabled = false;
+        m_currentTick = 0;
+    }
+
 
     private void Update()
     {
-        if (watch.ElapsedMilliseconds > m_interval + m_currentTick * m_interval)
+        if (m_enabled && watch.ElapsedMilliseconds > m_interval + m_currentTick * m_interval)
         {
             m_currentTick++; //TODO utiliser un modulo au cas au le dt était super gros
-            UnityEngine.Debug.Log("tick current = "+m_currentTick);
-            
+           
         }
     }
 }

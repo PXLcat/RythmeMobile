@@ -26,7 +26,13 @@ public class BeatsManager : MonoBehaviour
     public GameObject m_beatsParent;
     public Beat m_beatPrefab;
 
-    private BPMTimer _bmpTimer;
+    private BPMTimer _bpmTimer;
+
+    #region Propriétés relatives à la taille de la ligne
+    public Camera m_camera;
+    public Transform m_barreTempsTransform;
+    private decimal _lineSize;
+    #endregion
 
     private void Awake()
     {
@@ -42,68 +48,61 @@ public class BeatsManager : MonoBehaviour
         {
             _rythmBeats.Add(i);
         }
-
+        #endregion
+        #region Récupération de la taille de la ligne
+        _lineSize = Screen.width - (decimal)m_camera.WorldToScreenPoint(m_barreTempsTransform.position).x;
+        Debug.Log("linesize = " + _lineSize);
         #endregion
 
 
+        _bpmTimer = GetComponent<BPMTimer>();
+        double timer = (double)60000 / (double)_songDTO.BPM / (double)_songDTO.IntervalsByBPM;
+        Debug.Log("timer = " + timer);
+        _bpmTimer.ChangeInterval(timer);
 
-    }
-
-    void Start()
-    {
-        //_BPMtimer = new CustomTimer((double)60000 / (double)_songDTO.BPM / (double)_songDTO.IntervalsByBPM);
-        //_BPMtimer.Tick += OnTimedEvent;
     }
 
 
 
     public void StartTimer()
     {
-
+        _bpmTimer.StartTimer();
     }
 
-    internal void PauseTimer()
+    public void PauseTimer()
     {
-        throw new NotImplementedException();
+        _bpmTimer.PauseTimer();
     }
 
-    //public void StopTimer()
-    //{
-    //    _BPMtimer.Stop();
-    //    _currentBeat = 0;
-    //    _BPMtimer.CurrentTick = 0;
-    //    m_isPlaying.m_isTrue = false;
-    //}
-    //public void PauseTimer()
-    //{
-    //    _BPMtimer.Stop();
-    //    m_isPlaying.m_isTrue = false;
-    //}
+    public void ResumeTimer()
+    {
+        _bpmTimer.ResumeTimer();
+    }
+
+    public void StopTimer()
+    {
+        _bpmTimer.StopTimer();
+    }
+
 
     void Update()
     {
-        if (_currentBeat > _musicBeats[0] - m_timeAhead * _songDTO.IntervalsByBPM)
+        #region Initialisation des beats
+        if (_musicBeats.Count > 0 && _bpmTimer.m_currentTick > _musicBeats[0] - m_timeAhead * _songDTO.IntervalsByBPM)
         {
             Beat beat = Instantiate<Beat>(m_beatPrefab, m_beatsParent.transform);
-            beat.InitializeBeat(m_timeAhead, _songDTO.BPM, _musicBeats[0]);
+            beat.InitializeBeat(m_timeAhead, _songDTO.BPM, _musicBeats[0], _lineSize);
 
             _musicBeats.RemoveAt(0);
         }
+        #endregion
+
     }
 
-    internal void StopTimer()
-    {
-        throw new NotImplementedException();
-    }
-
-    internal void ResumeTimer()
-    {
-        throw new NotImplementedException();
-    }
 
     private void OnGUI()
     {
-        GUI.TextArea(new Rect(200, 100, 120, 20), "Current Beat: " + _bp .ToString());
+        GUI.TextArea(new Rect(200, 100, 120, 20), "Current Beat: " + _bpmTimer.m_currentTick.ToString());
 
     }
 

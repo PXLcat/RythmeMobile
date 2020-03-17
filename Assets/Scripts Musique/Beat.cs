@@ -16,8 +16,6 @@ public class Beat : MonoBehaviour
     private int _distanceFromRightBorder;//c'est en pixels
 
     private decimal _decimalesDeplacement;
-    [SerializeField]
-    private decimal _lineSize;
 
     [SerializeField]
     private bool _visible;
@@ -31,11 +29,12 @@ public class Beat : MonoBehaviour
     #endregion
 
     private Transform _transform;
-    private SpriteRenderer _sprite; 
+    private SpriteRenderer _sprite;
+
+
 
     private void Awake()
     {
-        Debug.Log("nouveau beat");
         _cam = Camera.main;
         _transform = GetComponent<Transform>();
         _sprite = GetComponent<SpriteRenderer>();
@@ -46,14 +45,13 @@ public class Beat : MonoBehaviour
 
     }
 
-    public void InitializeBeat(int timeAhead, int bpm, int beatNumber)
+    public void InitializeBeat(int timeAhead, int bpm, int beatNumber, decimal lineSize)
     {
         _beatNumber = beatNumber;
         _timeAhead = timeAhead;
         _bpm = bpm;
 
-        _lineSize = Screen.width - 100;//TODO récup la position de la barreTemps
-        decimal distanceParTemps = _lineSize / _timeAhead;
+        decimal distanceParTemps = lineSize / _timeAhead;
         float bps = bpm / 60f;
         _vitesse = distanceParTemps * (decimal)bps;
         
@@ -75,13 +73,13 @@ public class Beat : MonoBehaviour
                 _distanceFromRightBorder += 1;
             }
 
-            //_distanceFromRightBorder += (int)Math.Floor(deplacement);
+            _distanceFromRightBorder += (int)Math.Floor(deplacement);
             //DistanceFromRightBorder étant un nombre à virgule, on stocke les décimales pour ne pas causer de problème avec le nombre de pixels qui doit être en int
             #endregion
+            Vector3 worldPoint = _cam.ScreenToWorldPoint(new Vector3(Screen.width - _distanceFromRightBorder, Screen.height - 100, 0));
+            _transform.position = new Vector3(worldPoint.x, worldPoint.y, 0);
 
-            //transform.position = _cam.ScreenToWorldPoint(new Vector3(Screen.width-_distanceFromRightBorder, -100, 0));
-
-            _transform.position -= new Vector3((float)Math.Floor(deplacement) / 100, 0, 0); //pck Unity = 100px/unit
+            //_transform.position -= new Vector3((float)deplacement, 0, 0); //pck Unity = 100px/unit
 
             if (_sprite.isVisible == false)
             {

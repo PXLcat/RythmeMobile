@@ -84,15 +84,12 @@ public class Beat : MonoBehaviour
 
             if (_sprite.isVisible == false)
             {
-                Destroy();
+                Destroy(transform.gameObject);
             } 
         }
     }
 
-    public void Destroy()
-    {
-        Destroy(transform.gameObject);
-    }
+
 
 }
 public enum BeatType

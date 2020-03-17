@@ -102,10 +102,10 @@ public class BeatsManager : MonoBehaviour
     public void StopTimer()
     {
         _bpmTimer.StopTimer();
-        Beat[] beatsCreated = m_beatsParent.GetComponentsInChildren<Beat>();
-        foreach (Beat item in beatsCreated)
+        Transform[] beatsCreated = m_beatsParent.GetComponentsInChildren<Transform>();
+        for (int i = 1; i < beatsCreated.Length; i++) //on omet volontairement le [0] qui est celui du parent
         {
-            item.Destroy();
+            Destroy(beatsCreated[i].gameObject);
         }
         PopulateBeatLists();
     }
@@ -116,24 +116,24 @@ public class BeatsManager : MonoBehaviour
         #region Initialisation des beats
         if (_musicBeats.Count > 0 && _bpmTimer.m_currentTick > _musicBeats[0] - m_timeAhead * _songDTO.IntervalsByBPM)
         {
-            Beat beat = Instantiate<Beat>(m_beatPrefab, m_beatsParent.transform);
+            Beat beat = Instantiate(m_beatPrefab, m_beatsParent.transform);
             beat.InitializeBeat(m_timeAhead, _songDTO.BPM, _musicBeats[0], _lineSize);
 
             _musicBeats.RemoveAt(0);
         }
-        if (_leftBeats.Count > 0 && _bpmTimer.m_currentTick > _musicBeats[0] - m_timeAhead * _songDTO.IntervalsByBPM)
+        if (_leftBeats.Count > 0 && _bpmTimer.m_currentTick > _leftBeats[0] - m_timeAhead * _songDTO.IntervalsByBPM)
         {
-            Beat beat = Instantiate<Beat>(m_leftPrefab, m_beatsParent.transform);
+            Beat beat = Instantiate(m_leftPrefab, m_beatsParent.transform);
             beat.InitializeBeat(m_timeAhead, _songDTO.BPM, _musicBeats[0], _lineSize);
 
-            _musicBeats.RemoveAt(0);
+            _leftBeats.RemoveAt(0);
         }
-        if (_rightBeats.Count > 0 && _bpmTimer.m_currentTick > _musicBeats[0] - m_timeAhead * _songDTO.IntervalsByBPM)
+        if (_rightBeats.Count > 0 && _bpmTimer.m_currentTick > _rightBeats[0] - m_timeAhead * _songDTO.IntervalsByBPM)
         {
-            Beat beat = Instantiate<Beat>(m_rightPrefab, m_beatsParent.transform);
+            Beat beat = Instantiate(m_rightPrefab, m_beatsParent.transform);
             beat.InitializeBeat(m_timeAhead, _songDTO.BPM, _musicBeats[0], _lineSize);
 
-            _musicBeats.RemoveAt(0);
+            _rightBeats.RemoveAt(0);
         }//TODO enlever redondance
         #endregion
 

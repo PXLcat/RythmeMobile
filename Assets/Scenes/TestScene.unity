@@ -519,10 +519,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_trackJson: {fileID: 4900000, guid: a249233f69ec3584f88a5531220c486c, type: 3}
   _musicBeats: 
-  _rythmBeats: 
+  _leftBeats: 
+  _rightBeats: 
   m_timeAhead: 4
   m_beatsParent: {fileID: 2065295438}
   m_beatPrefab: {fileID: 8348296983065785890, guid: a7c94b917434a2e4ca80ac0c816ec817,
+    type: 3}
+  m_leftPrefab: {fileID: 8348296983065785890, guid: 7df98c0d2ad29a64694c66130ce83690,
+    type: 3}
+  m_rightPrefab: {fileID: 8348296983065785890, guid: 1d9355651cb6fd84c9cb2f3334ff97a1,
     type: 3}
   m_camera: {fileID: 519420031}
   m_barreTempsTransform: {fileID: 376403367}
@@ -539,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 112
-  m_enabled: 0
+  m_enabled: {fileID: 11400000, guid: ab129321536ff8a40b9d78a4287c265f, type: 2}
   m_currentTick: 0
 --- !u!1 &1741474314
 GameObject:
@@ -679,6 +684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2080748019}
+  - component: {fileID: 2080748020}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -700,3 +706,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2080748020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080748018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31713646cbb5d7644bb6201e08e5b755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_swipeDistanceTreshold: 50

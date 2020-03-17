@@ -11,7 +11,8 @@ public class SongDTO
     public int BPM;
     public int IntervalsByBPM;
     public int[] MusicLine;
-    public int[] RythmLine;
+    public int[] LeftBeats;
+    public int[] RightBeats;
 
 }
 

@@ -12,9 +12,11 @@ public class BeatsManager : MonoBehaviour
     private SongDTO _songDTO;
 
     [SerializeField]
-    List<int> _musicBeats = new List<int>();
+    List<int> _musicBeats ;
     [SerializeField]
-    List<int> _rythmBeats = new List<int>();
+    List<int> _leftBeats ;
+    [SerializeField]
+    List<int> _rightBeats ;
 
     #endregion
 
@@ -23,8 +25,11 @@ public class BeatsManager : MonoBehaviour
 
     public int m_timeAhead = 4;
 
+
     public GameObject m_beatsParent;
     public Beat m_beatPrefab;
+    public Beat m_leftPrefab;
+    public Beat m_rightPrefab;
 
     private BPMTimer _bpmTimer;
 
@@ -40,16 +45,14 @@ public class BeatsManager : MonoBehaviour
         _songDTO = JsonUtility.FromJson<SongDTO>(m_trackJson.text);
         Debug.Log(_songDTO.Name);
 
-        foreach (int i in _songDTO.MusicLine)
-        {
-            _musicBeats.Add(i);
-        }
-        foreach (int i in _songDTO.RythmLine)
-        {
-            _rythmBeats.Add(i);
-        }
+        PopulateBeatLists();
+
         #endregion
         #region Récupération de la taille de la ligne
+        Vector3 barreTempsPos = m_camera.ScreenToWorldPoint(
+            new Vector3(100, Screen.height - m_barreTempsTransform.GetComponent<SpriteRenderer>().sprite.texture.height*4/2, 0)); 
+            //*4 parce que dans gameoObject qui scale à 4, et /2 parce qu'on veut descendre de moitié
+        m_barreTempsTransform.position = new Vector3(barreTempsPos.x, barreTempsPos.y, 0);
         _lineSize = Screen.width - (decimal)m_camera.WorldToScreenPoint(m_barreTempsTransform.position).x;
         Debug.Log("linesize = " + _lineSize);
         #endregion
@@ -62,7 +65,24 @@ public class BeatsManager : MonoBehaviour
 
     }
 
-
+    private void PopulateBeatLists()
+    {
+        _musicBeats = new List<int>();
+        _leftBeats = new List<int>();
+        _rightBeats = new List<int>();
+        foreach (int i in _songDTO.MusicLine)
+        {
+            _musicBeats.Add(i);
+        }
+        foreach (int i in _songDTO.LeftBeats)
+        {
+            _leftBeats.Add(i);
+        }
+        foreach (int i in _songDTO.RightBeats)
+        {
+            _rightBeats.Add(i);
+        }
+    }
 
     public void StartTimer()
     {
@@ -82,6 +102,12 @@ public class BeatsManager : MonoBehaviour
     public void StopTimer()
     {
         _bpmTimer.StopTimer();
+        Beat[] beatsCreated = m_beatsParent.GetComponentsInChildren<Beat>();
+        foreach (Beat item in beatsCreated)
+        {
+            item.Destroy();
+        }
+        PopulateBeatLists();
     }
 
 
@@ -95,6 +121,20 @@ public class BeatsManager : MonoBehaviour
 
             _musicBeats.RemoveAt(0);
         }
+        if (_leftBeats.Count > 0 && _bpmTimer.m_currentTick > _musicBeats[0] - m_timeAhead * _songDTO.IntervalsByBPM)
+        {
+            Beat beat = Instantiate<Beat>(m_leftPrefab, m_beatsParent.transform);
+            beat.InitializeBeat(m_timeAhead, _songDTO.BPM, _musicBeats[0], _lineSize);
+
+            _musicBeats.RemoveAt(0);
+        }
+        if (_rightBeats.Count > 0 && _bpmTimer.m_currentTick > _musicBeats[0] - m_timeAhead * _songDTO.IntervalsByBPM)
+        {
+            Beat beat = Instantiate<Beat>(m_rightPrefab, m_beatsParent.transform);
+            beat.InitializeBeat(m_timeAhead, _songDTO.BPM, _musicBeats[0], _lineSize);
+
+            _musicBeats.RemoveAt(0);
+        }//TODO enlever redondance
         #endregion
 
     }

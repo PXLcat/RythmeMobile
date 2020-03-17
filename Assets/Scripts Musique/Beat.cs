@@ -22,6 +22,7 @@ public class Beat : MonoBehaviour
 
     private decimal _vitesse;
 
+    public SOBoolean _trackPlaying;
 
     #region Track attributes
     private int _timeAhead; //temps d'avance, déterminé par le BeatsManager lors du InitializeBeat
@@ -59,7 +60,7 @@ public class Beat : MonoBehaviour
 
     private void Update()
     {
-        if (true)
+        if (_trackPlaying.value)
         {
             #region Calcul déplacement
 
@@ -83,11 +84,15 @@ public class Beat : MonoBehaviour
 
             if (_sprite.isVisible == false)
             {
-                Destroy(transform.gameObject);
+                Destroy();
             } 
         }
     }
 
+    public void Destroy()
+    {
+        Destroy(transform.gameObject);
+    }
 
 }
 public enum BeatType

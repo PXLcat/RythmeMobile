@@ -7,8 +7,7 @@ public class BPMTimer : MonoBehaviour
 {
     [SerializeField]
     private double m_interval = 300;
-    [SerializeField]
-    private bool m_enabled;
+    public SOBoolean m_enabled;
     public int m_currentTick;
 
     private Stopwatch watch;
@@ -21,29 +20,29 @@ public class BPMTimer : MonoBehaviour
     public void StartTimer()
     {
         watch = Stopwatch.StartNew();
-        m_enabled = true;
+        m_enabled.value = true;
     }
     public void PauseTimer()
     {
         watch.Stop();
-        m_enabled = false;
+        m_enabled.value = false;
     }
     public void ResumeTimer()
     {
         watch.Start();
-        m_enabled = true;
+        m_enabled.value = true;
     }
     public void StopTimer()
     {
         watch.Reset();
-        m_enabled = false;
+        m_enabled.value = false;
         m_currentTick = 0;
     }
 
 
     private void Update()
     {
-        if (m_enabled && watch.ElapsedMilliseconds > m_interval + m_currentTick * m_interval)
+        if (m_enabled.value && watch.ElapsedMilliseconds > m_interval + m_currentTick * m_interval)
         {
             m_currentTick++; //TODO utiliser un modulo au cas au le dt était super gros
            

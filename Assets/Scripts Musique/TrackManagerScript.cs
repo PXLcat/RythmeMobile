@@ -50,7 +50,7 @@ public class TrackManagerScript : MonoBehaviour
         {
             _levelTrack.Stop();
             CurrentMusicState = MusicState.STOPPED;
-            //_beatManager.StopTimer();
+            StopMusic();
         }
     }
 #endif

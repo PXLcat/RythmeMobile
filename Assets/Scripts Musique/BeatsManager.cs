@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Timers;
 using System;
+using System.Linq;
 
 public class BeatsManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class BeatsManager : MonoBehaviour
     List<int> _rightBeats ;
 
     #endregion
+
+    public SOTouchStatus m_touchStatus;
 
     private MusicState _currentMusicState;
     public MusicState CurrentMusicState { get => _currentMusicState; set => _currentMusicState = value; }
@@ -39,13 +42,15 @@ public class BeatsManager : MonoBehaviour
     private decimal _lineSize;
     #endregion
 
+
+
     private void Awake()
     {
         #region Récupération des données du json
         _songDTO = JsonUtility.FromJson<SongDTO>(m_trackJson.text);
         Debug.Log(_songDTO.Name);
 
-        PopulateBeatLists();
+        InitializeBeatLists();
 
         #endregion
         #region Récupération de la taille de la ligne
@@ -63,9 +68,11 @@ public class BeatsManager : MonoBehaviour
         Debug.Log("timer = " + timer);
         _bpmTimer.ChangeInterval(timer);
 
+
+
     }
 
-    private void PopulateBeatLists()
+    private void InitializeBeatLists()
     {
         _musicBeats = new List<int>();
         _leftBeats = new List<int>();
@@ -107,7 +114,7 @@ public class BeatsManager : MonoBehaviour
         {
             Destroy(beatsCreated[i].gameObject);
         }
-        PopulateBeatLists();
+        InitializeBeatLists();
     }
 
 
@@ -137,6 +144,16 @@ public class BeatsManager : MonoBehaviour
         }//TODO enlever redondance
         #endregion
 
+        #region Statut si un touch est fait
+        if (_songDTO.MusicLine.Contains<int>(_bpmTimer.m_currentTick) || _songDTO.MusicLine.Contains<int>(_bpmTimer.m_currentTick+1)) //utiliser une autre liste qui suppr au fur et à mesure avec le pooling
+        {
+            m_touchStatus.m_status = TouchStatus.GREAT;
+        }
+        else
+        {
+            m_touchStatus.m_status = TouchStatus.MISSED;
+        }
+        #endregion
     }
 
 
@@ -146,4 +163,10 @@ public class BeatsManager : MonoBehaviour
 
     }
 
+
+    public enum TouchStatus
+    {
+        GREAT,
+        MISSED
+    }
 }

@@ -39,6 +39,10 @@ public class BPMTimer : MonoBehaviour
         m_currentTick = 0;
     }
 
+    private void Awake()
+    {
+        m_enabled.value = false;
+    }
 
     private void Update()
     {

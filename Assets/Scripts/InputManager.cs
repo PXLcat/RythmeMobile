@@ -11,15 +11,33 @@ public class InputManager : MonoBehaviour
     private Vector3 _firstPos;   //First touch position
     private Vector3 _lastPos;   //Last touch position
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    public SOTouchStatus m_touchStatus;
 
+    #region Animations
+    public Animator m_textAnimator;
+    private int _greatHash;
+    private int _missedHash;
+
+    public Animator m_characterAnimator;
+    private int _attackHash;
+
+    public Animator m_fxAnimator;
+
+    #endregion
+
+    private void Awake()
+    {
+        _greatHash = Animator.StringToHash("GreatTrigger");
+        _missedHash = Animator.StringToHash("MissedTrigger");
+
+        _attackHash = Animator.StringToHash("Attack");
     }
 
-    // Update is called once per frame
+    
     private void Update()
     {
+        _touchDown = false;
+
         if (Input.touchCount>0)
         {
             Touch input = Input.GetTouch(0);
@@ -28,7 +46,6 @@ public class InputManager : MonoBehaviour
             {
                 case TouchPhase.Began:
                     _touchDown = true;
-                    Debug.Log("touch unique");
                     _firstPos = input.position;
                     _lastPos = input.position;
                     break;
@@ -49,6 +66,25 @@ public class InputManager : MonoBehaviour
             AnalyzeGesture(_firstPos, _lastPos);
         }
 
+        if (_touchDown)
+        {
+            m_characterAnimator.SetTrigger(_attackHash);
+
+            if (m_touchStatus.m_status == BeatsManager.TouchStatus.GREAT)
+            {
+                Debug.Log("GREAT");
+                m_textAnimator.SetTrigger(_greatHash);
+                m_fxAnimator.SetTrigger(_attackHash);
+
+            }
+            else if (m_touchStatus.m_status == BeatsManager.TouchStatus.MISSED)
+            {
+                Debug.Log("missed");
+                m_textAnimator.SetTrigger(_missedHash);
+
+            }
+
+        }
 
     }
 

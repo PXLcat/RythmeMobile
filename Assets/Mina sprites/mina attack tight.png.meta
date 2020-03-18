@@ -1,0 +1,463 @@
+fileFormatVersion: 2
+guid: 9eda997ea84e2df4db9f548f5e47f1c7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7079683241168532210
+    second: mina attack tight_0
+  - first:
+      213: -6959142740656873837
+    second: mina attack tight_1
+  - first:
+      213: -7421212213534767348
+    second: mina attack tight_2
+  - first:
+      213: -5001043313863844845
+    second: mina attack tight_3
+  - first:
+      213: -5122650732055319906
+    second: mina attack tight_4
+  - first:
+      213: 8270191964021683220
+    second: mina attack tight_5
+  - first:
+      213: 2261986104595671191
+    second: mina attack tight_6
+  - first:
+      213: 8850573441854636874
+    second: mina attack tight_7
+  - first:
+      213: 6203608943498962780
+    second: mina attack tight_8
+  - first:
+      213: -4614685012203609451
+    second: mina attack tight_9
+  - first:
+      213: -3424066322446834142
+    second: mina attack tight_10
+  - first:
+      213: -6021023397681843906
+    second: mina attack tight_11
+  - first:
+      213: -8552853501284554474
+    second: mina attack tight_12
+  - first:
+      213: 4637819445708671533
+    second: mina attack tight_13
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mina attack tight_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 190
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db9a9b098b3d6a479142d74f81b2178
+      internalID: -7079683241168532210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_1
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 190
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a6cf7d8b191034da4f1c3601b25c12
+      internalID: -6959142740656873837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_2
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 190
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 810f03af5de05db4aaada1b8fe66b79d
+      internalID: -7421212213534767348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_3
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 190
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5adcf1da58bdb45a1ba96c9cb6cce0
+      internalID: -5001043313863844845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_4
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 190
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff55ca2be6e2a394aa88ad5192223647
+      internalID: -5122650732055319906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_5
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 190
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1572ca7d6565c374f9e2987efabfd21e
+      internalID: 8270191964021683220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_6
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 190
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f6ee0f58b4b354db741725fae40727
+      internalID: 2261986104595671191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c73ae56db9660a74e96c2b9c056e9535
+      internalID: 8850573441854636874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_8
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 0
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ce40ec5bc9a6449bc6348b818e7243
+      internalID: 6203608943498962780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_9
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 0
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad160b72b9dd7d44abc525502477f92
+      internalID: -4614685012203609451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_10
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 0
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af79772b92a0ae2479b5b37b1706b4e3
+      internalID: -3424066322446834142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_11
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 0
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37c326c17eda1c4e9e5084907e636bb
+      internalID: -6021023397681843906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_12
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 0
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a83fb4e6e969e9f44a11cda26da136d3
+      internalID: -8552853501284554474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mina attack tight_13
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 0
+        width: 221
+        height: 190
+      alignment: 9
+      pivot: {x: 0.561086, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ee0e94afe3fe264689a2698b7116a52
+      internalID: 4637819445708671533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

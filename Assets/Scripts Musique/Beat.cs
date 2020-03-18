@@ -10,8 +10,8 @@ public class Beat : MonoBehaviour
 
     [SerializeField]
     private BeatType _type;
-    [SerializeField]
-    private int _beatNumber;
+
+    public int _beatNumber; //public pour être récup dans le BeatManager
     [SerializeField]
     private int _distanceFromRightBorder;//c'est en pixels
 

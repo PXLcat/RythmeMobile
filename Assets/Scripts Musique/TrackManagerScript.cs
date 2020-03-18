@@ -28,7 +28,7 @@ public class TrackManagerScript : MonoBehaviour
     private void OnGUI()
     {
         //Bouton PLAY/PAUSE
-        if (GUI.Button(new Rect(400, 70, 60, 30), (_currentMusicState == MusicState.PLAYING) ? "PAUSE" : "PLAY"))
+        if (GUI.Button(new Rect(800, 140, 120, 60), (_currentMusicState == MusicState.PLAYING) ? "PAUSE" : "PLAY"))
         {
             switch (_currentMusicState)
             {
